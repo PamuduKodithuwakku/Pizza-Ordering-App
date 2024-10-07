@@ -1,0 +1,73 @@
+.container {
+    height: calc(100vh - 100px);
+    background: linear-gradient(135deg, #333, #111);
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+.item {
+    flex: 1;
+    position: relative;
+    display: flex;
+    /* margin-bottom: 20px; */
+}
+
+.item:last-child {
+    flex: 2;
+    padding: 50px;
+    justify-content: space-between;
+    /* gap: 40px; */
+}
+
+.card {
+    flex: 1;
+    padding: 0 20px;
+    /* margin-bottom: 20px; */
+}
+
+.title {
+    font-size: 18px;
+    font-weight: bold;
+    color: #b7903c;
+    /* margin-bottom: 20px; */
+}
+
+.text {
+    color: lightgray;
+    /* font-size: 16px;
+    line-height: 1.6; */
+}
+
+.motto {
+    /* font-size: 24px;
+    font-weight: bold; */
+    color: #ecf0f1; /* Softer white for better readability */
+    /* text-align: center;
+    padding: 20px;
+    background: rgba(0, 0, 0, 0.3);
+    border-radius: 10px; */
+}
+
+@media screen and (max-width: 480px) {
+    .container {
+        height: auto;
+        text-align: center;
+    }
+    
+    .item:first-child {
+        display: none;
+    }
+
+    .item {
+        flex-direction: column;
+    }
+
+    .title {
+        font-size: 30px;
+    }
+
+    .text {
+        font-size: 20px;
+    }
+}
