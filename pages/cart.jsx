@@ -1,4 +1,4 @@
-import styles from "../styles/Cart.module.css";
+import styles from "@/styles/Cart.module.css";
 import Image from "next/image";
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect, useState } from "react";
@@ -10,7 +10,7 @@ import {
 import axios from "axios";
 import { useRouter } from "next/router";
 import { reset } from "../redux/cartSlice";
-//import OrderDetail from "../components/OrderDetail";
+import OrderDetail from "@/components/OrderDetail";
 
 const Cart = () => {
   const cart = useSelector((state) => state.cart);
@@ -68,7 +68,6 @@ const Cart = () => {
                 ],
               })
               .then((orderId) => {
-                // Your code here after create the order
                 return orderId;
               });
           }}

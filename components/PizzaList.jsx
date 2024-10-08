@@ -1,8 +1,7 @@
-import React from 'react'
 import styles from '@/styles/PizzaList.module.css'
 import PizzaCard from './PizzaCard'
 
-const PizzaList = ({pizzaList}) => {
+const PizzaList = ({ pizzaList }) => {
   return (
     <div className={styles.container}>
         <h1 className={styles.title}>THE BEST PIZZA IN TOWN</h1>
@@ -17,7 +16,7 @@ const PizzaList = ({pizzaList}) => {
           ))}            
         </div>
     </div>
-  )
-}
+  );
+};
 
-export default PizzaList
+export default PizzaList;
