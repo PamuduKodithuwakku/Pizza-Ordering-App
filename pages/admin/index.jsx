@@ -3,7 +3,7 @@ import axios from "axios";
 import Image from "next/image";
 import { useState } from "react";
 
-const index = ({ orders, products }) => {
+const Index = ({ orders, products }) => {
     const [pizzaList, setPizzaList] = useState(products);
     const [orderList, setOrderList] = useState(orders);
     const status = ["preparing", "on the way", "delivered"];
@@ -140,4 +140,4 @@ const index = ({ orders, products }) => {
     };
 };
 
-export default index;
+export default Index;
