@@ -1,0 +1,51 @@
+.container {
+    padding: 40px;
+    background-color: #f8f9fa;
+    text-align: center;
+  }
+  
+  .title {
+    font-size: 36px;
+    color: #333;
+    margin-bottom: 20px;
+    border-bottom: 2px solid #b7903c;
+    display: inline-block;
+    padding-bottom: 10px;
+  }
+  
+  .eventsList {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+  }
+  
+  .eventCard {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    width: 300px;
+    text-align: left;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  .eventCard:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  }
+  
+  .eventTitle {
+    font-size: 24px;
+    color: #b7903c;
+    margin-bottom: 10px;
+  }
+  
+  .eventDate,
+  .eventLocation,
+  .eventDescription {
+    color: #555;
+    margin: 5px 0;
+  }
+  
