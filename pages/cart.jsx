@@ -2,11 +2,11 @@ import styles from "@/styles/Cart.module.css";
 import Image from "next/image";
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect, useState } from "react";
-import {
-  PayPalScriptProvider,
-  PayPalButtons,
-  usePayPalScriptReducer,
-} from "@paypal/react-paypal-js";
+// import {
+//   PayPalScriptProvider,
+//   PayPalButtons,
+//   usePayPalScriptReducer,
+// } from "@paypal/react-paypal-js";
 import axios from "axios";
 import { useRouter } from "next/router";
 import { reset } from "../redux/cartSlice";
@@ -34,57 +34,57 @@ const Cart = () => {
     }
   };
 
-  const ButtonWrapper = ({ currency, showSpinner }) => {
-    const [{ options, isPending }, dispatch] = usePayPalScriptReducer();
+  // const ButtonWrapper = ({ currency, showSpinner }) => {
+  //   const [{ options, isPending }, dispatch] = usePayPalScriptReducer();
 
-    useEffect(() => {
-      dispatch({
-        type: "resetOptions",
-        value: {
-          ...options,
-          currency: currency,
-        },
-      });
-    }, [currency, showSpinner]);
+  //   useEffect(() => {
+  //     dispatch({
+  //       type: "resetOptions",
+  //       value: {
+  //         ...options,
+  //         currency: currency,
+  //       },
+  //     });
+  //   }, [currency, showSpinner]);
 
-    return (
-      <>
-        {showSpinner && isPending && <div className="spinner" />}
-        <PayPalButtons
-          style={style}
-          disabled={false}
-          forceReRender={[amount, currency, style]}
-          fundingSource={undefined}
-          createOrder={(data, actions) => {
-            return actions.order
-              .create({
-                purchase_units: [
-                  {
-                    amount: {
-                      currency_code: currency,
-                      value: amount,
-                    },
-                  },
-                ],
-              })
-              .then((orderId) => {
-                return orderId;
-              });
-          }}
-          onApprove={async function (data, actions) {
-            const details = await actions.order.capture();
-            const shipping = details.purchase_units[0].shipping;
-            createOrder({
-              customer: shipping.name.full_name,
-              address: shipping.address.address_line_1,
-              total: cart.total,
-              method: 1,
-            });
-          }}
-        />
-      </>
-    );
-  };
+  //   return (
+  //     <>
+  //       {showSpinner && isPending && <div className="spinner" />}
+  //       <PayPalButtons
+  //         style={style}
+  //         disabled={false}
+  //         forceReRender={[amount, currency, style]}
+  //         fundingSource={undefined}
+  //         createOrder={(data, actions) => {
+  //           return actions.order
+  //             .create({
+  //               purchase_units: [
+  //                 {
+  //                   amount: {
+  //                     currency_code: currency,
+  //                     value: amount,
+  //                   },
+  //                 },
+  //               ],
+  //             })
+  //             .then((orderId) => {
+  //               return orderId;
+  //             });
+  //         }}
+  //         onApprove={async function (data, actions) {
+  //           const details = await actions.order.capture();
+  //           const shipping = details.purchase_units[0].shipping;
+  //           createOrder({
+  //             customer: shipping.name.full_name,
+  //             address: shipping.address.address_line_1,
+  //             total: cart.total,
+  //             method: 1,
+  //           });
+  //         }}
+  //       />
+  //     </>
+  //   );
+  // };
 
   return (
     <div className={styles.container}>
@@ -159,7 +159,7 @@ const Cart = () => {
               >
                 CASH ON DELIVERY
               </button>
-              <PayPalScriptProvider
+              {/* <PayPalScriptProvider
                 options={{
                   "client-id":
                     "ATTL8fDJKfGzXNH4VVuDy1qW4_Jm8S0sqmnUTeYtWpqxUJLnXIn90V8YIGDg-SNPaB70Hg4mko_fde4-",
@@ -169,7 +169,7 @@ const Cart = () => {
                 }}
               >
                 <ButtonWrapper currency={currency} showSpinner={false} />
-              </PayPalScriptProvider>
+              </PayPalScriptProvider> */}
             </div>
           ) : (
             <button onClick={() => setOpen(true)} className={styles.button}>
